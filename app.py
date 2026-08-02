@@ -106,10 +106,10 @@ def evaluate_models_on_split():
 
 
 @st.cache_data
-def evaluate_single_model(model, X_train, X_test, y_train, y_test):
-    model.fit(X_train, y_train)
-    y_pred = model.predict(X_test)
-    y_prob = model.predict_proba(X_test)[:, 1]
+def evaluate_single_model(_model, X_train, X_test, y_train, y_test):
+    _model.fit(X_train, y_train)
+    y_pred = _model.predict(X_test)
+    y_prob = _model.predict_proba(X_test)[:, 1]
 
     metrics = {
         "Accuracy": round(accuracy_score(y_test, y_pred), 4),
@@ -138,7 +138,7 @@ X_train, X_test, y_train, y_test = build_split()
 comparison_df = evaluate_models_on_split()
 
 st.subheader("Model comparison table")
-st.dataframe(comparison_df, use_container_width=True)
+st.dataframe(comparison_df, width="stretch")
 
 st.subheader("Model selection and evaluation")
 if uploaded_file is not None:
@@ -181,7 +181,7 @@ col6.metric("MCC", f"{metrics['MCC']:.4f}")
 
 st.write("Evaluation metrics for the selected model on the chosen test data")
 metrics_df = pd.DataFrame(metrics.items(), columns=["Metric", "Value"])
-st.dataframe(metrics_df, use_container_width=True)
+st.dataframe(metrics_df, width="stretch")
 
 cm = confusion_matrix(eval_y_test, y_pred)
 fig, ax = plt.subplots(figsize=(4, 3))
