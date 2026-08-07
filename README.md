@@ -40,24 +40,11 @@ The dashboard compares these classification models:
 Overall winner for the chosen dataset: Logistic Regression, which achieved the highest accuracy on the default hold-out split.
 
 ## Deployment on Streamlit Community Cloud
-1. Open https://streamlit.io/cloud
-2. Sign in with a GitHub account
-3. Click New App
-4. Select the repository
-5. Choose the main branch
-6. Select app.py
-7. Click Deploy
+https://2025ac05550assignment2ml.streamlit.app/
 
 The app includes the following required features:
 - CSV upload option for test data
 - Model selection dropdown
 - Evaluation metrics display
 - Confusion matrix and classification report
-
-## Submission checklist
-- GitHub repo link works
-- Streamlit app link opens correctly
-- App loads without errors
-- All required features are implemented
-- README.md is updated and included in the PDF submission
 
